@@ -6,24 +6,26 @@
 
 		<title>Interactive HPC - eSSENCE </title>
 
-		<link rel="stylesheet" href="../reveal.js/dist/reset.css">
-		<link rel="stylesheet" href="../reveal.js/dist/reveal.css">
-		<link rel="stylesheet" href="../reveal.js/dist/theme/black.css">
+	  <link rel="stylesheet" href="../cdn_modules/reveal.js@5.1.0/reset.css">
+		<link rel="stylesheet" href="../cdn_modules/reveal.js@5.1.0/reveal.css">
+		<link rel="stylesheet" href="../cdn_modules/reveal.js@5.1.0/theme/black.css">
 
 		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="../reveal.js/plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="../cdn_modules/reveal.js@5.1.0/plugin/highlight/monokai.css">
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
 				<section data-background-image="../Figure_LU/BG_Title-page.png">
-					## Slide Title
-
-<div class="rectangle">
-    <h2 style="color:#873600">Image Analysis: From Interactive Setup to HPC Bulk Processing </h2>
-				<p style="color:black">Erika Tudisco, Geotechnical Engineering, LTH – Sweden</p></section>
+				
+				<div class="rectangle">
+          <h3 style="color:#873600">Image Analysis: From Interactive Setup to HPC Bulk Processing </h3>
+          <hr>
+				  <p style="color:black; font-size:28px">Erika Tudisco, Geotechnical Engineering, LTH – Sweden</p>
 				</div>
-<section>
+				</section>
+				
+        <section>
 					<section data-markdown>
 					<textarea data-template>
 						## Introduction
@@ -56,24 +58,29 @@
 		</div>
 
 		<style>
-    .rectangle {
-        width: 600px;
-        height: 300px;
-        background-color: white;
-        border: 2px solid black;
-        position: absolute;
-        right: 10px;
-        top: 30%;
-        padding: 10px;
-        box-sizing: border-box;
-    }
+      body {
+            position: relative; /* Ensure the body is the reference point for absolute positioning */
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+        }
+        .rectangle {
+            width: 800px; /* Width of the rectangle */
+            height: 300px; /* Height of the rectangle */
+            background-color: white; /* Color of the rectangle */
+            position: absolute; /* Positioning method */
+            left: calc(100% - 570px); /* Move it to the right edge */
+            transform: translateY(-50%);
+            text-align: left;
+            padding: 20px;
+            box-sizing: border-box;
+          }
 		</style>
 
-		<script src="../reveal.js/dist/reveal.js"></script>
-		<script src="../reveal.js/plugin/notes/notes.js"></script>
-		<script src="../reveal.js/plugin/markdown/markdown.js"></script>
-		<script src="../reveal.js/plugin/highlight/highlight.js"></script>
-		<script src="../reveal.js/plugin/math/math.js"></script>
+		<script src="../cdn_modules/reveal.js@5.1.0/reveal.js"></script>
+		<script src="../cdn_modules/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+		<script src="../cdn_modules/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+		<script src="../cdn_modules/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+		<script src="../cdn_modules/reveal.js@5.1.0/plugin/math/math.js"></script>
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
