@@ -25,32 +25,89 @@
 				</div>
 				</section>
 				
-        <section>
+				<section>
+				<section data-markdown>
+        <textarea data-template>
+          ## BACKGROUND
+          Clay till is poorly characterized 
+          <p>we want to test the mechanical properties and link them to easily measurable characteristics</p>
+        </textarea>
+        </section>
+				</section>
+				
+        <section style="text-align: left">
 					<section data-markdown>
 					<textarea data-template>
-						## Introduction
-						The problem is...
-						- We have done...
-
-					</textarea>
+						## METHODS
+						<div class="contenitore">
+						<div class="colsx">
+						<ul>
+						  <li>Triaxial test</li>
+						  <li class="fragment" data-fragment-index="0">X-ray tomography</li>
+              <ul>
+						    <li class="fragment" data-fragment-index="0">Two scans</li>
+						    <li class="fragment" data-fragment-index="0">Pixel size: 65 microns</li>
+						    <li class="fragment" data-fragment-index="0">Acquisition time: 50 min</li>
+              </ul>
+						  <li class="fragment" data-fragment-index="1">Analysis of microstructure</li>
+						    <ul>
+						      <li class="fragment" data-fragment-index="1">Particle properties (size, shape, ...)</li>
+						    </ul>
+            </ul>
+            </div>
+						
+						<div class="coldx">
+						<img class="fragment" data-fragment-index="0" src="Figures/scan.png" alt="Figures/scan.png">
+					  </div>
+            </div>
+						</textarea>
 					</section>
 				</section>
+				
 				<section>
 					<section data-markdown>
 					<textarea data-template>
 						## Particle segmentation: Ilastik
-						- one point
-						- another point
+						run the program with gui
+				    <div class="r-stack">
+				      <img class="fragment" src="Figures/ilastik_1.png" />
+				      <img class="fragment" src="Figures/ilastik_2.png" />
+				      <img class="fragment" src="Figures/ilastik_3.png" />
+				    </div>
+					</textarea>
+					</section>
+				</section>
+				
+				<section>
+        <section data-markdown>
+				    <textarea data-template>
+				      ## Python - Visual Code
+				      run graphycally on selected slices to find right patarameters
+				    </textarea >
+        </section>
+				</section>
+				
+				<section>
+        <section data-markdown>
+				    <textarea data-template>
+				      ## Python - SLURMP jobs
+				      run jobs to analyse the entire volume
+				    </textarea >
+        </section>
+				</section>
+				
+				<section>
+					<section data-markdown>
+					<textarea data-template>
+						## Slide 1
+						A paragraph with some text and a [link](https://hakim.se).
 						---
-						## Slide 3
-						`$$ J(\theta_0,\theta_1) = \sum_{i=0} $$`
+						## Slide 2
 						---
-						## frag
-						<p class="fragment">Fade in</p>
-						<p class="fragment fade-out">Fade out</p>
-						<p class="fragment highlight-red">Highlight red</p>
-						<p class="fragment fade-in-then-out">Fade in, then out</p>
-						<p class="fragment fade-up">Slide up while fading in</p>
+					  ## Results
+					  Labelled particles with properties
+					  ---
+				    ## Statistics 
 					</textarea>
 					</section>
 				</section>
@@ -63,17 +120,26 @@
             height: 100vh; /* Full viewport height */
             margin: 0; /* Remove default margin */
         }
+        .reveal{
+          width: 100%
+        }
         .rectangle {
             width: 800px; /* Width of the rectangle */
             height: 300px; /* Height of the rectangle */
             background-color: white; /* Color of the rectangle */
             position: absolute; /* Positioning method */
-            left: calc(100% - 570px); /* Move it to the right edge */
+            left: calc(100% - 800px); /* Move it to the right edge */
             transform: translateY(-50%);
             text-align: left;
             padding: 20px;
             box-sizing: border-box;
           }
+		</style>
+		
+		<style>
+		  .colsx {width:50%; float:left;}
+		  .coldx {background:#060; width:50%; float:right;}
+		  .contenitore {background:#070; width:100%; margin:0 auto; text-align:left; }
 		</style>
 
 		<script src="../cdn_modules/reveal.js@5.1.0/reveal.js"></script>
@@ -87,6 +153,10 @@
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
+				width: 1400,
+				height: 800,
+				center: true,
+				margin: 0.04,
 				slideNumber: 'c/t' ,
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
