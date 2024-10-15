@@ -51,13 +51,13 @@
               </ul>
 						  <li class="fragment" data-fragment-index="1">Analysis of microstructure</li>
 						    <ul>
-						      <li class="fragment" data-fragment-index="1">Particle properties (size, shape, ...)</li>
+						      <li class="fragment" data-fragment-index="1">Particle properties<br> (size, shape, ...)</li>
 						    </ul>
             </ul>
             </div>
 						
 						<div class="coldx">
-						<img class="fragment" data-fragment-index="0" src="Figures/scan.png" alt="Figures/scan.png">
+						<img class="fragment" data-fragment-index="0" src="Figures/xray-example.png" alt="Figures/scan.png">
 					  </div>
             </div>
 						</textarea>
@@ -70,7 +70,8 @@
 						## Particle segmentation: Ilastik
 						run the program with gui
 				    <div class="r-stack">
-				      <img class="fragment" src="Figures/ilastik_1.png" />
+				      <img class="fragment fade-out" data-fragment-index="0" src="Figures/run-ilastik.png" />
+				      <img class="fragment current-visible" data-fragment-index="0" src="Figures/ilastik_1.png" />
 				      <img class="fragment" src="Figures/ilastik_2.png" />
 				      <img class="fragment" src="Figures/ilastik_3.png" />
 				    </div>
@@ -83,6 +84,7 @@
 				    <textarea data-template>
 				      ## Python - Visual Code
 				      run graphycally on selected slices to find right patarameters
+				      <img src="Figures/VisualStudioCode.png" />
 				    </textarea >
         </section>
 				</section>
@@ -92,6 +94,10 @@
 				    <textarea data-template>
 				      ## Python - SLURMP jobs
 				      run jobs to analyse the entire volume
+				      <div class="r-stack">
+						<img src="Figures/job-example.png" />
+						<img class="fragment" src="Figures/run-jobs.png" />
+					</div>
 				    </textarea >
         </section>
 				</section>
@@ -99,15 +105,41 @@
 				<section>
 					<section data-markdown>
 					<textarea data-template>
-						## Slide 1
-						A paragraph with some text and a [link](https://hakim.se).
+						## Results
+						Labelled particles
+						<div class="colsx">
+						</div>
+						<div class="coldx">
+							<img src="Figures/labelled_h.png" width=300px />
+							<img src="Figures/labelled_v.png" width=300px />
+						</div>
 						---
-						## Slide 2
+						## Results
+						Labelled particles
+						<div class="colsx">
+							<img src="Figures/particle_1-properties.png"/>
+						</div>
+						<div class="coldx">
+							<img src="Figures/particle_1-image.png" width=600px   />
+						</div>
 						---
-					  ## Results
-					  Labelled particles with properties
-					  ---
-				    ## Statistics 
+						---
+						## Results
+						Labelled particles
+						<div class="colsx">
+							<img src="Figures/particle_2-properties.png"/>
+						</div>
+						<div class="coldx">
+							<img src="Figures/particle_2-image.png" width=500px   />
+						</div>
+						---
+						## Results
+						Statistics
+						<div class="colsx">
+							<img src="Figures/particle-size-distribution_amount.png"/>
+						</div>
+						<div class="coldx">
+							<img src="Figures/sphericity.png"    />
 					</textarea>
 					</section>
 				</section>
@@ -138,7 +170,7 @@
 		
 		<style>
 		  .colsx {width:50%; float:left;}
-		  .coldx {background:#060; width:50%; float:right;}
+		  .coldx {width:50%; float:right;}
 		  .contenitore {background:#070; width:100%; margin:0 auto; text-align:left; }
 		</style>
 
