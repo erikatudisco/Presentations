@@ -1,0 +1,139 @@
+/*!
+ * reveal.js white theme
+ */
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+:root {
+  --r-background-color: #ffffff;
+  --r-main-color: #333333;
+  --r-main-font: Helvetica, Arial, sans-serif;
+  --r-main-font-size: 42px;
+  --r-main-font-weight: normal;
+  --r-link-color: #5d4037; /* Marrone scuro */
+  --r-link-hover-color: #8d6e63; /* Marrone più chiaro */
+  --r-heading-color: #873600; /* Marrone scuro per i titoli */
+  --r-heading-font: Helvetica, Arial, sans-serif;
+  --r-heading-font-weight: 600;
+  --r-heading-text-shadow: none;
+  --r-heading-letter-spacing: normal;
+  --r-heading-text-transform: none; /* Mantieni il testo come scritto */
+  --r-heading-line-height: 1.2;
+  --r-selection-background-color: #8d6e63;
+  --r-selection-color: #fff;
+}
+
+.reveal {
+  font-family: var(--r-main-font);
+  font-size: var(--r-main-font-size);
+  font-weight: var(--r-main-font-weight);
+  color: var(--r-main-color);
+  background-color: var(--r-background-color);
+}
+
+/* Controlla la dimensione globale del testo per tutto il corpo */
+.reveal .slides {
+    font-size: 26px; 
+    text-align: left; /* Allinea TUTTO il testo a sinistra */
+}
+
+.reveal .slides section,
+.reveal .slides section > section {
+  line-height: 1.3;
+  font-weight: inherit;
+}
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: 0 0 20px 0;
+  color: var(--r-heading-color);
+  font-family: var(--r-heading-font);
+  font-weight: var(--r-heading-font-weight);
+  line-height: var(--r-heading-line-height);
+  letter-spacing: var(--r-heading-letter-spacing);
+  text-shadow: var(--r-heading-text-shadow);
+  text-transform: var(--r-heading-text-transform);
+  word-wrap: break-word;
+}
+
+.reveal h1 { font-size: 2em; }
+.reveal h2 { font-size: 1.6em; }
+.reveal h3 { font-size: 1.2em; }
+.reveal h4 { font-size: 1em; }
+
+/*********************************************
+ * OTHER
+ *********************************************/
+.reveal p {
+  margin: 0 0 10px 0;
+}
+
+.reveal ul,
+.reveal ol {
+    padding-left: 20px; /* Riduci l'indentatura a 20px (o 0px per allineare perfettamente al bordo) */
+    margin-left: 0;     /* Assicura che non ci siano margini aggiuntivi */
+    list-style-position: outside; /* Posiziona il simbolo fuori dal contenuto del testo */
+}
+
+/* Regola l'indentatura dei sotto-elenchi, se necessario */
+.reveal ul ul,
+.reveal ol ol {
+    padding-left: 40px; /* Aumenta l'indentatura per i livelli successivi */
+}
+
+.reveal img {
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+/* --- I TUOI STILI AGGIUNTIVI PER IL FOOTER E LAYOUT --- */
+
+.reveal .footer {
+    display: flex !important;
+    align-items: flex-end !important; /* Allinea in basso */
+    justify-content: space-between; 
+    width: 100%;
+    position: absolute;
+    bottom: 1em; 
+    left: 0;
+    padding: 0 1em; 
+    box-sizing: border-box;
+    font-size: 0.6em; 
+    color: #999; 
+}
+
+.reveal .footer img,
+.reveal .footer span {
+    vertical-align: bottom !important;
+    line-height: normal;
+}
+
+/* Nasconde il footer se la slide ha data-state="senza-footer" */
+.reveal.senza-footer .footer {
+    display: none !important;
+}
+
+/* Classi per affiancare testo e immagini (come nella slide 3) */
+.text-image_fix {
+    display: flex; /* Usa flexbox per affiancare gli elementi */
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.text-column {
+    flex: 1; /* Occupa lo spazio disponibile */
+    padding-right: 20px;
+}
+
+.image-column {
+    flex-basis: 350px; /* Larghezza fissa per l'immagine */
+    text-align: right;
+}
