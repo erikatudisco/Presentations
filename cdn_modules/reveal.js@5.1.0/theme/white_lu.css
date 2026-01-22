@@ -1,8 +1,12 @@
 /*!
- * reveal.js white theme
+ * reveal.js theme: white_lu (custom)
+ * - Optimized for 2026 presentations
+ * - Clean left-alignment without breaking scale
+ * - Professional English comments
  */
+
 /*********************************************
- * GLOBAL STYLES
+ * CSS VARIABLES
  *********************************************/
 :root {
   --r-background-color: #ffffff;
@@ -10,19 +14,21 @@
   --r-main-font: Helvetica, Arial, sans-serif;
   --r-main-font-size: 42px;
   --r-main-font-weight: normal;
-  --r-link-color: #5d4037; /* Marrone scuro */
-  --r-link-hover-color: #8d6e63; /* Marrone più chiaro */
-  --r-heading-color: #873600; /* Marrone scuro per i titoli */
+  --r-link-color: #5d4037;
+  --r-link-hover-color: #8d6e63;
+  --r-heading-color: #873600;
   --r-heading-font: Helvetica, Arial, sans-serif;
   --r-heading-font-weight: 600;
-  --r-heading-text-shadow: none;
-  --r-heading-letter-spacing: normal;
-  --r-heading-text-transform: none; /* Mantieni il testo come scritto */
   --r-heading-line-height: 1.2;
+  --r-heading-letter-spacing: normal;
+  --r-heading-text-transform: none;
   --r-selection-background-color: #8d6e63;
   --r-selection-color: #fff;
 }
 
+/*********************************************
+ * BASE LAYOUT
+ *********************************************/
 .reveal {
   font-family: var(--r-main-font);
   font-size: var(--r-main-font-size);
@@ -31,109 +37,234 @@
   background-color: var(--r-background-color);
 }
 
-/* Controlla la dimensione globale del testo per tutto il corpo */
+/* Global text size and alignment for the slides container */
 .reveal .slides {
-    font-size: 26px; 
-    text-align: left; /* Allinea TUTTO il testo a sinistra */
+  font-size: 26px; 
+  text-align: left; /* Aligns all text content to the left */
+  line-height: 1.5; /* Improved line height for better readability */
 }
 
+/* Ensure consistent line height for all sections */
 .reveal .slides section,
 .reveal .slides section > section {
   line-height: 1.3;
   font-weight: inherit;
+}.reveal .slides section::after {
+  content: "";
+  display: block;
+  height: 120px; /* This is your safety zone size */
+  width: 100%;
+}
+
+/* Ensure the slides don't try to center themselves vertically over your padding */
+.reveal .slides section {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  height: 100% !important;
 }
 
 /*********************************************
- * HEADERS
+ * HEADINGS
  *********************************************/
-.reveal h1,
-.reveal h2,
-.reveal h3,
-.reveal h4,
-.reveal h5,
-.reveal h6 {
+.reveal h1, .reveal h2, .reveal h3, 
+.reveal h4, .reveal h5, .reveal h6 {
   margin: 0 0 20px 0;
   color: var(--r-heading-color);
   font-family: var(--r-heading-font);
   font-weight: var(--r-heading-font-weight);
   line-height: var(--r-heading-line-height);
-  letter-spacing: var(--r-heading-letter-spacing);
-  text-shadow: var(--r-heading-text-shadow);
-  text-transform: var(--r-heading-text-transform);
   word-wrap: break-word;
 }
 
-.reveal h1 { font-size: 2em; }
-.reveal h2 { font-size: 1.6em; }
-.reveal h3 { font-size: 1.2em; }
-.reveal h4 { font-size: 1em; }
+.reveal h1 { font-size: 2em; margin-bottom: 40px;}
+.reveal h2 { font-size: 1.6em; margin-bottom: 40px;}
+.reveal h3 { font-size: 1.2em; margin-bottom: 40px;}
 
 /*********************************************
- * OTHER
+ * LISTS AND PARAGRAPHS
  *********************************************/
-.reveal p {
-  margin: 0 0 10px 0;
+.reveal p { margin: 0 0 20px 0; }
+
+.reveal ul, .reveal ol {
+  padding-left: 20px; /* Reduced indentation to keep text close to the edge */
+  margin-left: 0;
+  list-style-position: outside;
 }
 
-.reveal ul,
-.reveal ol {
-    padding-left: 20px; /* Riduci l'indentatura a 20px (o 0px per allineare perfettamente al bordo) */
-    margin-left: 0;     /* Assicura che non ci siano margini aggiuntivi */
-    list-style-position: outside; /* Posiziona il simbolo fuori dal contenuto del testo */
+.reveal ul ul, .reveal ol ol {
+  padding-left: 40px; /* Indentation for nested lists */
 }
 
-/* Regola l'indentatura dei sotto-elenchi, se necessario */
-.reveal ul ul,
-.reveal ol ol {
-    padding-left: 40px; /* Aumenta l'indentatura per i livelli successivi */
+/* Vertical spacing for list items (The most effective for lists) */
+.reveal li {
+  /* This adds space specifically between the bullet points */
+  margin-bottom: 0.6em; 
 }
 
+/* Ensure nested lists don't become excessively spaced */
+.reveal li li {
+  margin-bottom: 0.3em;
+  font-size: 0.9em; /* Optional: slightly smaller sub-items */
+}
+
+/*********************************************
+ * IMAGES & FIGURES
+ *********************************************/
 .reveal img {
   border: none;
   box-shadow: none;
   background-color: transparent;
 }
 
-/* --- I TUOI STILI AGGIUNTIVI PER IL FOOTER E LAYOUT --- */
-
+/*********************************************
+ * FOOTER
+ *********************************************/
 .reveal .footer {
-    display: flex !important;
-    align-items: flex-end !important; /* Allinea in basso */
-    justify-content: space-between; 
-    width: 100%;
-    position: absolute;
-    bottom: 1em; 
-    left: 0;
-    padding: 0 1em; 
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: space-between; 
+  width: 100%;
+  position: absolute;
+  bottom: 1em; 
+  left: 0;
+  padding: 0 1em; 
+  box-sizing: border-box;
+  font-size: 0.3em; 
+  color: #999; 
+  z-index: 1; /* Behind content if overlapping */
+}
+
+/* Hide footer for specific slides using data-state="no-footer" */
+.reveal.no-footer .footer {
+  display: none !important;
+}
+
+/*********************************************
+ * TITLE SLIDE POSITIONING (Fixed Logic)
+ *********************************************/
+
+/* Custom background for the title slide */
+.reveal .slide-background.title-slide {
+  background-image: url("../../../Figure_LU/BG_Title-page.png") !important;
+  background-size: cover;
+  background-position: center;
+}
+
+/*********************************************
+ * TITLE SLIDE - FINAL PRECISION LAYOUT
+ *********************************************/
+
+/* Target the slide container to disable Reveal's auto-centering */
+.reveal .slides section.title-slide {
+    display: block !important; /* Disables flex centering */
+    height: 100% !important;
+    top: 0 !important;
+}
+
+.title-slide .title-box {
+    /* Absolute positioning relative to the slide boundaries */
+    position: absolute !important;
+
+    /* VERTICAL POSITION */
+    /* Adjust 'top' to move it down. 
+       20% = High, 40% = Middle, 60% = Low */
+    top: 17% !important; 
+    
+    /* HORIZONTAL POSITION (Aligned to the Right) */
+    /* 'right' anchors it to the right edge. 
+       5% is a safe margin for projectors. */
+    right: -20% !important;
+    left: auto !important; /* Ensures 'left' from previous tests is disabled */
+
+    /* Reset transform to avoid unpredictable shifts */
+    transform: none !important;
+
+    /* BOX STYLING */
+    width: 78%;
+    max-width: 1800px;
+    background: rgba(255, 255, 255, );
+    /* border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 10px; */
+    padding: 30px;
     box-sizing: border-box;
-    font-size: 0.6em; 
-    color: #999; 
+    z-index: 10;
+    
+    /* Tighter text for the title box */
+    line-height: 1.2; 
+    text-align: left;
 }
-
-.reveal .footer img,
-.reveal .footer span {
-    vertical-align: bottom !important;
-    line-height: normal;
-}
-
-/* Nasconde il footer se la slide ha data-state="senza-footer" */
-.reveal.senza-footer .footer {
+/* When a slide with class 'title-slide' is active, hide the counter */
+/* This works by targeting the state class added to the <div> .reveal */
+.reveal.has-title-slide .slide-number {
     display: none !important;
 }
 
-/* Classi per affiancare testo e immagini (come nella slide 3) */
+/* Also hide it if you manually use data-state="no-slide-number" */
+.reveal.no-slide-number .slide-number {
+    display: none !important;
+}
+
+
+/*********************************************
+ * LAYOUT UTILITIES (Flexbox Columns)
+ *********************************************/
 .text-image_fix {
-    display: flex; /* Usa flexbox per affiancare gli elementi */
-    align-items: flex-start;
-    justify-content: space-between;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .text-column {
-    flex: 1; /* Occupa lo spazio disponibile */
-    padding-right: 20px;
+  flex: 1;
+  padding-right: 20px;
 }
 
 .image-column {
-    flex-basis: 350px; /* Larghezza fissa per l'immagine */
-    text-align: right;
+  flex-basis: var(--col-width, 350px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Align image and text to the right side of the column */
+}
+
+.image-column img {
+  width: var(--img-width, 100%); 
+  height: auto;
+  object-fit: contain;
+}
+
+
+ /*********************************************
+ * CUSTOM TABLE STYLING
+ *********************************************/
+.reveal table.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.8em; /* Slightly smaller to fit more data */
+}
+
+.reveal table.custom-table th {
+    background-color: var(--r-heading-color); /* Your LU brown */
+    color: white;
+    font-weight: bold;
+    padding: 15px;
+    border: 1px solid var(--border);
+}
+
+.reveal table.custom-table td {
+    padding: 12px 15px;
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+/* Zebra striping for readability */
+.reveal table.custom-table tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Highlight specific row (e.g., your results) */
+.reveal table.custom-table tr.highlight {
+    background-color: var(--accent-soft);
+    font-weight: bold;
 }
